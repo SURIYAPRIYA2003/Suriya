@@ -1,0 +1,114 @@
+import json
+users=[]
+rental_houses=[]
+
+class rental_user:
+    def __init__(self,Id:int,Name:str,Email:str,Password:int,Phno:int,Aadhar:int):
+        self.userid=Id
+        self.name=Name
+        self.email=Email
+        self.password=Password
+        self.phno=Phno
+        self.aadhar=Aadhar
+    def hardcodedata(self):
+        users.append(self)
+        return users
+    def welcome(self):
+        print("Welcome",self.name)
+
+    def validlogin(Email,Password):
+        for user in users:
+            if user.email==Email and user.password==Password:
+                return true
+            else:
+                return false
+    def register(self):
+        user_id=int(input("Enter the user ID: "))
+        Name = input("Enter the Name: ")
+        Email = input("Enter the Email ID: ")
+        Password = int(input("Enter the Password: "))
+        Phno = int(input("Enter the Phno: "))
+        Aadhar=int(input("Enter the Aadhar No: "))
+        app.retal_user(user_id,name,mail,password,phno,aadhar)
+        app.hardcodedata()
+
+class house_view(rental_user):#polymorphism
+    def __init__(self,id,name,mail,password,phno,aadhar):
+        super().__init__(id,name,mail,password,phno,aadhar)
+
+
+    def house_for_customer(self):
+        house1=houselist(1,"1BHK",750,'5000/month','Chennai')
+        house2=houselist(2,"2BHK",850,'8000/month','Coimbatore')
+        house3=houselist(3,"3BHK",950,'10000/month','Trichy')
+        rental_house.append(house1)
+        rental_house.append(house2)
+        rental_house.append(house3)
+        
+        customermenu=True
+        while(customermenu):
+            print("\n-----------Customer Menu------------")
+            print("1. Display House")
+            print("2. Add to Cart")
+            print("3. Do Paymant")
+            print("4. Booked History")
+            print("5. Approval  History")
+            print("6. Logout")
+            choice=int(input("Enter your choice: "))
+
+            
+        if choice==1:#Queue
+            houses=rental_house()
+
+            while(items !=[]):
+                item_=items.pop(0)
+                print(item_.house_id)
+                print(item_.house_type)
+                print(item_.square_ft)
+                print(item_.rent)
+                print(item_.location)
+
+
+            print("\n---------------------------------------------")
+        if choice==2:
+            booking_count=0
+            item_id=int(input("Enter an Id of house: "))
+            type=input("Enter a type of house: ")
+
+
+
+
+
+
+
+class houselist:
+    def __init__(self,house_id,house_type,square_ft,rent,location):
+        self.house_id=house_id
+        self.house_type=house_type
+        self.square_ft=square_ft
+        self.rent=rent
+        self.loaction=location
+
+
+if __name__=="__main()__":
+    app.rental_user(1,'surya','surya123@gmail','4455667','565687678','456586879879')
+    app.hardcodedata()
+    app.welcome()
+
+    Email=input("Enter your EMail ID: ")
+    Password=int(input("Enter your password: "))
+
+
+    login_user=app.validlogin(Email,Password)
+    print("Login Sucessful")
+
+    if(login_user):
+        view=house_view(login_user.id,login_user.name,login_user.email,login_user.password,login_user.phno,login_user.aadhar)
+        view.house_for_customer()
+    else:
+        print("Register Page.............")
+        app.register()
+        print("Registration Sucessful.......")
+        view=house_view(login_user.id,login_user.name,login_user.email,login_user.password,login_user.phno,login_user.aadhar)
+        view.house_for_customer()
+                 
